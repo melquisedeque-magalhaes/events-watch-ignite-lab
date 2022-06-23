@@ -1,20 +1,17 @@
-import { gql, useQuery } from "@apollo/client"
-
-const GET_LESSONS_QUERY = gql`
-  query {
-    lessons {
-      id
-      title
-    } 
-  }
-`
+import { Header } from "../components/Header";
+import { Sidebar } from "../components/SiderBar";
+import { Video } from "../components/Video";
 
 export default function Home() {
-  const { data } = useQuery(GET_LESSONS_QUERY)
-
-  console.log(data)
 
   return (
-    <h1 className="text-3xl font-bold underline">Hello Ignite Lab</h1>
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <main className="flex flex-1">
+        <Video />
+        <Sidebar />
+      </main>
+    </div>
+    
   )
 }
