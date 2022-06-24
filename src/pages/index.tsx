@@ -1,6 +1,5 @@
 import { Header } from "../components/Header";
 import { Sidebar } from "../components/SiderBar";
-import { Video } from "../components/Video";
 
 export default function Home() {
 
@@ -8,7 +7,8 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex flex-1">
-        <Video />
+        
+        <div className="flex-1">Login</div>
         <Sidebar />
       </main>
     </div>

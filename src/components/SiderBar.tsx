@@ -1,6 +1,6 @@
 import { Lesson } from "./Lesson";
-import { LESSON_QUERY_GQL } from "../services/gql/LESSON_QUERY_GQL";
 import { useQuery } from "@apollo/client";
+import { LESSON_QUERY_GQL } from "../services/gql/query/LESSONS";
 
 interface GetLessonQueryResponse {
   lessons: {
@@ -23,7 +23,13 @@ export function Sidebar() {
       <div className="flex flex-col gap-8">
         {
           data?.lessons.map(lesson => (
-            <Lesson key={lesson.id} title={lesson.title} availableAt={new Date(lesson.availableAt)} slug={lesson.slug} type={lesson.lessonType} />
+            <Lesson 
+              key={lesson.id} 
+              title={lesson.title} 
+              availableAt={new Date(lesson.availableAt)} 
+              slug={lesson.slug} 
+              type={lesson.lessonType} 
+            />
           ))
         }
         

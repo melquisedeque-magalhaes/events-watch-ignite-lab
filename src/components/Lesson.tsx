@@ -20,13 +20,13 @@ export function Lesson({ availableAt, slug, title, type }: LessonProps) {
   )
 
   return (
-    <Link href={slug} className="cursor-pointer">
-      <div>
+    <Link href={`/event/lesson/${slug}`}>
+      <div className="cursor-pointer group">
         <span className="text-base text-gray-300">
           {availableDateFormatted}
         </span>
 
-        <div className="flex flex-col border border-gray-500 mt-2 rounded p-4">
+        <div className="flex flex-col border border-gray-500 mt-2 rounded p-4 group-hover:border-green-700">
           <header className="flex justify-between items-center mb-4">
           
             {
