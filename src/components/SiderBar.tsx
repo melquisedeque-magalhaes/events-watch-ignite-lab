@@ -1,6 +1,6 @@
 import { Lesson } from "./Lesson";
 import { useQuery } from "@apollo/client";
-import { LESSON_QUERY_GQL } from "../services/gql/query/LESSONS";
+import { LessonsGql } from "../services/gql/query/Lessons";
 
 interface GetLessonQueryResponse {
   lessons: {
@@ -14,7 +14,7 @@ interface GetLessonQueryResponse {
 
 export function Sidebar() {
 
-  const { data } = useQuery<GetLessonQueryResponse>(LESSON_QUERY_GQL)
+  const { data } = useQuery<GetLessonQueryResponse>(LessonsGql)
 
   return (
     <aside className="w-[348px] bg-gray-700 border-l border-gray-600 p-6">

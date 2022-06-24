@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-export const GET_LESSON_BY_SLUG = gql`
+export const LessonBySlugGql = gql`
 query GetLessonBySlug($slug: String) {
   lesson(where: {slug: $slug}, stage: PUBLISHED) {
     description

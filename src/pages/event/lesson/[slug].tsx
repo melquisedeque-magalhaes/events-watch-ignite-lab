@@ -3,7 +3,7 @@ import { Header } from "../../../components/Header";
 import { Sidebar } from "../../../components/SiderBar";
 import { Video } from "../../../components/Video";
 import { client } from "../../../services/apollo";
-import { GET_LESSON_BY_SLUG } from "../../../services/gql/query/LessonBySlug";
+import { LessonBySlugGql } from "../../../services/gql/query/LessonBySlug";
 
 interface getLessonBySlugResponse {
   lesson: {
@@ -38,7 +38,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const { slug } = context.query
 
   const { data } = await client.query<getLessonBySlugResponse>({
-    query: GET_LESSON_BY_SLUG,
+    query: LessonBySlugGql,
     variables: {
       slug: slug
     }
