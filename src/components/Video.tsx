@@ -2,26 +2,14 @@ import { DiscordLogo, Lightning } from "phosphor-react"
 import { ButtonFullLink } from "./ButtonFullLink"
 import { ButtonLink } from "./ButtonLink"
 import dynamic from 'next/dynamic'
+import { LessonTypes } from "../typings/Lesson"
 
 const PlayVideo = dynamic(() => import('./PlayVideo'), {
   ssr: false,
 })
 
-interface VideoProps {
-  lesson: {
-    title: string
-    description: string
-    id: string
-    videoId: string
-    teacher: {
-      name: string
-      bio: string
-      avatarURL: string
-    }
- }
-}
 
-export function Video({ lesson }: VideoProps) {
+export function Video({ lesson }: LessonTypes) {
 
   return (
     <div className="flex-1">

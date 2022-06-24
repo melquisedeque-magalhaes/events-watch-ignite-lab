@@ -1,25 +1,16 @@
 import { GetServerSideProps } from "next";
+import dynamic from "next/dynamic";
 import { Header } from "../../../components/Header";
-import { Sidebar } from "../../../components/SiderBar";
 import { Video } from "../../../components/Video";
 import { client } from "../../../services/apollo";
 import { LessonBySlugGql } from "../../../services/gql/query/LessonBySlug";
+import { LessonTypes } from "../../../typings/Lesson";
 
-interface getLessonBySlugResponse {
-  lesson: {
-     title: string
-     description: string
-     id: string
-     videoId: string
-     teacher: {
-       name: string
-       bio: string
-       avatarURL: string
-     }
-  }
- }
+const Sidebar = dynamic(() => import('../../../components/SideBar'), {
+  ssr: false,
+})
 
-export default function EventLesson({ lesson }: getLessonBySlugResponse) {
+export default function EventLesson({ lesson }: LessonTypes) {
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -37,7 +28,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   const { slug } = context.query
 
-  const { data } = await client.query<getLessonBySlugResponse>({
+  const { data } = await client.query<LessonTypes>({
     query: LessonBySlugGql,
     variables: {
       slug: slug
