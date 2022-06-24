@@ -2,10 +2,15 @@ import { Lesson } from "./Lesson";
 import { useQuery } from "@apollo/client";
 import { LessonsGql } from "../services/gql/query/Lessons";
 import { LessonsTypes } from "../typings/Lessons";
+import { useRouter } from "next/router";
 
 export default function Sidebar() {
 
   const { data } = useQuery<LessonsTypes>(LessonsGql)
+
+  const router = useRouter()
+
+  const { slug } = router.query
 
   return (
     <aside className="w-[348px] bg-gray-700 border-l border-gray-600 p-6">
@@ -20,6 +25,7 @@ export default function Sidebar() {
               availableAt={new Date(lesson.availableAt)} 
               slug={lesson.slug} 
               type={lesson.lessonType} 
+              isActive={slug === lesson.slug}
             />
           ))
         }
