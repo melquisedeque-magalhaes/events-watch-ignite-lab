@@ -3,6 +3,8 @@ import { useQuery } from "@apollo/client";
 import { LessonsGql } from "../services/gql/query/Lessons";
 import { LessonsTypes } from "../typings/Lessons";
 import { useRouter } from "next/router";
+import { signOut } from "next-auth/react";
+import { SignOut } from "phosphor-react";
 
 export default function Sidebar() {
 
@@ -31,6 +33,16 @@ export default function Sidebar() {
         }
         
       </div>
+
+      <button 
+        onClick={() => signOut()}
+        className="mt-10 w-full font-bold uppercase text-sm bg-green-500 rounded py-4 flex items-center justify-center hover:bg-green-700 transition-colors gap-2"
+      >
+        <SignOut size={24} />  
+        <span>
+          Sair
+        </span>
+      </button>
      
     </aside>
   )

@@ -1,4 +1,3 @@
-import { DiscordLogo } from "phosphor-react";
 import { ReactNode } from "react";
 
 interface ButtonLinkProps {

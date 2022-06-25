@@ -1,5 +1,7 @@
 import { GetServerSideProps } from "next";
 import dynamic from "next/dynamic";
+import { getSession } from 'next-auth/react'
+
 import { Header } from "../../../components/Header";
 import { Video } from "../../../components/Video";
 import { client } from "../../../services/apollo";
@@ -25,6 +27,17 @@ export default function EventLesson({ lesson }: LessonTypes) {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+
+  const session = await getSession(context)
+
+  if(!session){
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false
+      }
+    }
+  }
 
   const { slug } = context.query
 

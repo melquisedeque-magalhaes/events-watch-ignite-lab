@@ -1,9 +1,9 @@
 import { GetServerSideProps } from "next"
-import { client } from "../../../services/apollo"
-import { LessonsGql } from "../../../services/gql/query/Lessons"
-import { LessonsTypes } from "../../../typings/Lessons"
+import { client } from "../../services/apollo"
+import { LessonsGql } from "../../services/gql/query/Lessons"
+import { LessonsTypes } from "../../typings/Lessons"
 
-export default function LessonRedirect() {
+export default function EventRedirect() {
   return null
 }
 

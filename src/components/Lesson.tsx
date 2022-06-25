@@ -46,7 +46,7 @@ export function Lesson({ availableAt, slug, title, type, isActive }: LessonProps
               )
             }
 
-            <span className={`py-[0.125rem] px-2 rounded border border-green-300 font-bold ${type === 'live' ? 'text-green-300' : 'text-white'} uppercase text-xs ${isActive && 'text-white border-white transition-colors'}`}>
+            <span className={`py-[0.125rem] px-2 rounded border border-green-300 font-bold text-white uppercase text-xs ${isActive && 'text-white border-white transition-colors'}`}>
               {type === 'live' ? "ao vivo" : "aula prática"} 
             </span>
 
