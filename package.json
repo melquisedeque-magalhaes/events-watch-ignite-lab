@@ -6,14 +6,17 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "codegen": "graphql-codegen"
   },
   "dependencies": {
     "@apollo/client": "^3.6.8",
+    "@graphql-codegen/cli": "^2.6.2",
     "@vime/core": "^5.3.1",
     "@vime/react": "^5.3.1",
     "date-fns": "^2.28.0",
     "graphql": "^16.5.0",
+    "graphql-codegen-apollo-next-ssr": "^1.7.2",
     "next": "12.1.6",
     "next-auth": "^4.6.1",
     "phosphor-react": "^1.4.1",
@@ -21,6 +24,9 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@graphql-codegen/typescript": "^2.5.1",
+    "@graphql-codegen/typescript-operations": "^2.4.2",
+    "@graphql-codegen/typescript-react-apollo": "^3.2.16",
     "@types/node": "^18.0.0",
     "@types/react": "^18.0.14",
     "autoprefixer": "^10.4.7",

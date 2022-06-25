@@ -1,14 +1,11 @@
-import { Lesson } from "./Lesson";
-import { useQuery } from "@apollo/client";
-import { LessonsGql } from "../services/gql/query/Lessons";
-import { LessonsTypes } from "../typings/Lessons";
 import { useRouter } from "next/router";
 import { signOut } from "next-auth/react";
 import { SignOut } from "phosphor-react";
 
-export default function Sidebar() {
+import { Lesson } from "./Lesson";
+import { LessonsTypes } from "../typings/Lessons";
 
-  const { data } = useQuery<LessonsTypes>(LessonsGql)
+export default function Sidebar({ lessons }: LessonsTypes) {
 
   const router = useRouter()
 
@@ -20,7 +17,7 @@ export default function Sidebar() {
 
       <div className="flex flex-col gap-8">
         {
-          data?.lessons.map(lesson => (
+          lessons.map(lesson => (
             <Lesson 
               key={lesson.id} 
               title={lesson.title} 
