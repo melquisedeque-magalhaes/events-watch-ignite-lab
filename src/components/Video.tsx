@@ -1,91 +1,61 @@
-import { DiscordLogo, Lightning } from "phosphor-react"
-import { ButtonFullLink } from "./ButtonFullLink"
-import { ButtonLink } from "./ButtonLink"
-import dynamic from 'next/dynamic'
-import { LessonTypes } from "../typings/Lesson"
+import { LessonInfos } from "./LessonInfos"
+import { ContainerVideo } from "./ContainerVideo"
+import { LinksExtras } from "./LinksExtras"
+import { LinkChallengeAndCommunity } from "./LinkChallengeAndCommunity"
+import { useGetLessonBySlugQuery } from "../typings/generated"
+import { useRouter } from "next/router"
 
-const PlayVideo = dynamic(() => import('./PlayVideo'), {
-  ssr: false,
-})
+import Lottie from 'react-lottie';
+import loadingAnimation from '../animations/loading.json'
 
+export function Video() {
 
-export function Video({ lesson }: LessonTypes) {
+  const { query } = useRouter()
+
+  const { slug } = query 
+
+  const { data, loading, error } = useGetLessonBySlugQuery({
+    variables: {
+      slug: String(slug),
+    },
+  })
+
+  console.log(data)
+
+  if(loading && !error){
+    return (
+      <Lottie 
+        options={{
+          animationData: loadingAnimation
+        }}
+        height={400}
+        width={400}
+      />
+    )
+  }
 
   return (
     <div className="flex-1">
 
-      <div className="bg-black flex justify-center">
-        <div className="h-full w-full max-w-[1100px] max-h-[60vh] aspect-video">
-          <PlayVideo youtubeVideoId={lesson?.videoId} />
+      <ContainerVideo videoId={data?.lesson?.videoId} />
+
+      <div className="p-8 mx-auto w-full max-w-[1100px]">
+        <div className="flex items-start gap-6">
+
+          <LessonInfos 
+            title={data?.lesson?.title} 
+            description={data?.lesson?.description} 
+            teacher={data?.lesson?.teacher} 
+          />
+
+         <LinkChallengeAndCommunity />         
+         
         </div>
-      </div>
 
-      <div className="flex items-center flex-col">
-        <div className="flex justify-center mt-8 gap-16 h-full w-full max-w-[1100px]">
-
-          <div className="flex flex-col  gap-4 leading-relaxed">
-
-            <strong className="text-2xl text-gray-100">
-              {lesson?.title}
-            </strong>
-
-            <p className="text-base text-gray-200">
-              {lesson?.description}
-            </p>
-
-            <div className="flex mt-6 gap-4 leading-relaxed">
-              <img 
-                src={lesson?.teacher.avatarURL}
-                alt={lesson?.teacher.name}
-                className="w-16 h-16 rounded-full border-2 border-blue-500"
-              />
-
-              <div>
-                <span className="font-bold text-2xl text-gray-100">{lesson?.teacher.name}</span>
-                <p className="text-sm text-gray-300">{lesson?.teacher.bio}</p>
-              </div>
-
-            </div>
-
-
-            <div className="my-[80px] flex gap-8">
-              <ButtonFullLink 
-                icon="File" 
-                title="Material complementar" 
-                description="Acesse o material complementar para acelerar o seu desenvolvimento" 
-              />
-
-              <ButtonFullLink 
-                icon="Image" 
-                title="Wallpapers exclusivos" 
-                description="Baixe wallpapers exclusivos do Ignite Lab e personalize a sua máquina" 
-              />
-            </div>
-            
-          </div>
-
-          <div className="flex flex-col min-w-[240px] gap-4">
-
-            <ButtonLink>
-              <DiscordLogo size={24} />
-              <span>
-                Comunidade no discord
-              </span>
-            </ButtonLink>
-
-            <ButtonLink variant="Secondary">
-              <Lightning size={24} />
-              <span>
-                Acesse o desafio
-              </span>
-            </ButtonLink>
-
-          </div>
-
-        </div>
+        <LinksExtras />
 
       </div> 
-      
+
     </div>
   )
 }
