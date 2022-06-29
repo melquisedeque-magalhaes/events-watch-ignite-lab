@@ -31,4 +31,4 @@ Pelo seu terminal navegue até a pasta do projeto e execute:
 
 Siga-me no Linkedin, estou sempre por lá. 
 
-![Linkedin Badge](https://www.linkedin.com/in/melqui-sodre/](https://www.linkedin.com/in/melqui-sodre/)](https://www.linkedin.com/in/melqui-sodre/)
+![Linkedin Badge] (https://www.linkedin.com/in/melqui-sodre/](https://www.linkedin.com/in/melqui-sodre/)](https://www.linkedin.com/in/melqui-sodre/)
