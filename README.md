@@ -31,4 +31,4 @@ Pelo seu terminal navegue até a pasta do projeto e execute:
 
 Siga-me no Linkedin, estou sempre por lá. 
 
-![Linkedin Badge](https://img.shields.io/badge/-Rodrigo%20Gonçalves%20Santana-6633cc?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/melqui-sodre/)
+![Linkedin Badge](https://www.linkedin.com/in/melqui-sodre/](https://www.linkedin.com/in/melqui-sodre/)](https://www.linkedin.com/in/melqui-sodre/)
