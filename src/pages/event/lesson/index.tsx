@@ -1,23 +1,22 @@
-import { GetServerSideProps } from "next"
+import { GetServerSideProps } from 'next'
 
-import { client } from "../../../services/apollo"
-import { GetLessonsDocument } from "../../../typings/generated"
-import { LessonsTypes } from "../../../typings/Lessons"
+import { client } from '../../../services/apollo'
+import { GetLessonsDocument } from '../../../typings/generated'
+import { LessonsTypes } from '../../../typings/Lessons'
 
 export default function LessonRedirect() {
   return null
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-
   const { data } = await client.query<LessonsTypes>({
-    query: GetLessonsDocument
+    query: GetLessonsDocument,
   })
 
   return {
     redirect: {
       destination: `/event/lesson/${data.lessons[0].slug}`,
-      permanent: false
-    }
+      permanent: false,
+    },
   }
 }

@@ -1,18 +1,17 @@
-import { LessonInfos } from "./LessonInfos"
-import { ContainerVideo } from "./ContainerVideo"
-import { LinksExtras } from "./LinksExtras"
-import { LinkChallengeAndCommunity } from "./LinkChallengeAndCommunity"
-import { useGetLessonBySlugQuery } from "../typings/generated"
-import { useRouter } from "next/router"
+import { LessonInfos } from './LessonInfos'
+import { ContainerVideo } from './ContainerVideo'
+import { LinksExtras } from './LinksExtras'
+import { LinkChallengeAndCommunity } from './LinkChallengeAndCommunity'
+import { useGetLessonBySlugQuery } from '../typings/generated'
+import { useRouter } from 'next/router'
 
-import Lottie from 'react-lottie';
+import Lottie from 'react-lottie'
 import loadingAnimation from '../animations/loading.json'
 
 export function Video() {
-
   const { query } = useRouter()
 
-  const { slug } = query 
+  const { slug } = query
 
   const { data, loading, error } = useGetLessonBySlugQuery({
     variables: {
@@ -22,11 +21,11 @@ export function Video() {
 
   console.log(data)
 
-  if(loading && !error){
+  if (loading && !error) {
     return (
-      <Lottie 
+      <Lottie
         options={{
-          animationData: loadingAnimation
+          animationData: loadingAnimation,
         }}
         height={400}
         width={400}
@@ -36,27 +35,21 @@ export function Video() {
 
   return (
     <div className="flex-1">
-
       <ContainerVideo videoId={data?.lesson?.videoId} />
 
       <div className="p-8 mx-auto w-full max-w-[1100px]">
         <div className="flex items-start gap-6">
-
-          <LessonInfos 
-            title={data?.lesson?.title} 
-            description={data?.lesson?.description} 
-            teacher={data?.lesson?.teacher} 
+          <LessonInfos
+            title={data?.lesson?.title}
+            description={data?.lesson?.description}
+            teacher={data?.lesson?.teacher}
           />
 
-         <LinkChallengeAndCommunity />         
-         
+          <LinkChallengeAndCommunity />
         </div>
 
         <LinksExtras />
-
-      </div> 
-
+      </div>
     </div>
   )
 }
-

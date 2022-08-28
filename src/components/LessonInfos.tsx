@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 interface LessonInfosProps {
   title: string
   description: string
@@ -8,32 +10,27 @@ interface LessonInfosProps {
   }
 }
 
-export function LessonInfos({ description, teacher, title }: LessonInfosProps){
-  return(
+export function LessonInfos({ description, teacher, title }: LessonInfosProps) {
+  return (
     <div className="flex-1">
+      <strong className="text-2xl text-gray-100">{title}</strong>
 
-      <strong className="text-2xl text-gray-100">
-        {title}
-      </strong>
-
-      <p className="text-base text-gray-200">
-        {description}
-      </p>
+      <p className="text-base text-gray-200">{description}</p>
 
       <div className="flex mt-6 gap-4 leading-relaxed">
-        <img 
+        <Image
           src={teacher?.avatarURL}
           alt={teacher?.name}
           className="w-16 h-16 rounded-full border-2 border-blue-500"
         />
 
         <div>
-          <span className="font-bold text-2xl text-gray-100">{teacher?.name}</span>
+          <span className="font-bold text-2xl text-gray-100">
+            {teacher?.name}
+          </span>
           <p className="text-sm text-gray-300">{teacher?.bio}</p>
         </div>
-
       </div>
-      
     </div>
   )
 }

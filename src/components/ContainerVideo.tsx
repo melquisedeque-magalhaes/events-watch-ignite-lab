@@ -9,7 +9,7 @@ interface ContainerVideoProps {
 }
 
 export function ContainerVideo({ videoId }: ContainerVideoProps) {
-  return(
+  return (
     <div className="bg-black flex justify-center">
       <div className="h-full w-full max-w-[1100px] max-h-[60vh] aspect-video">
         <PlayVideo youtubeVideoId={videoId} />

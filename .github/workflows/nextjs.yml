@@ -1,0 +1,14 @@
+name: "Continuos Integration (CI)"
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  linter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: linter
+        run: yarn lint

@@ -1,6 +1,6 @@
-import { DefaultUi, Player, Youtube } from "@vime/react"
+import { DefaultUi, Player, Youtube } from '@vime/react'
 
-import '@vime/core/themes/default.css';
+import '@vime/core/themes/default.css'
 
 interface PlayVideoProps {
   youtubeVideoId: string
