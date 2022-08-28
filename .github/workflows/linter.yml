@@ -1,0 +1,17 @@
+name: "Continuos Integration (CI) linter"
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  linter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run Install dependesse
+        run: yarn 
+
+      - name: Run linter
+        run: yarn lint
