@@ -1,6 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 import { GetServerSideProps } from 'next'
 import { getSession, signIn } from 'next-auth/react'
-import Image from 'next/image'
+
 import { GithubLogo } from 'phosphor-react'
 
 import { Logo } from '../components/Logo'
@@ -42,7 +43,7 @@ export default function Home() {
         </form>
       </div>
 
-      <Image src="/code-background.png" alt="Code Reactjs" />
+      <img src="/code-background.png" alt="Code Reactjs" />
     </div>
   )
 }
