@@ -1,0 +1,53 @@
+name: "Continuos Integration (CI) Install dependesse"
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  Dependesse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run Install dependesse
+        run: yarn 
+
+  Linter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.13.0
+          cache: 'yarn'
+
+      - name: Run linter
+        run: yarn lint
+
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.13.0
+          cache: 'yarn'
+
+      - name: Run Build
+        run: yarn build
+
+  Test_e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.13.0
+          cache: 'yarn'
+      - name: Cypress
+        uses: cypress-io/github-action@v4
+        with: 
+          browser: chrome
