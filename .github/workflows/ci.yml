@@ -43,6 +43,10 @@ jobs:
         with:
           node-version: 16.13.0
           cache: 'yarn'
+
+      - name: Run Application
+        run: yarn dev
+
       - name: Cypress
         uses: cypress-io/github-action@v4
         with: 
