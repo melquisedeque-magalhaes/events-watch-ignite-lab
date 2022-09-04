@@ -18,8 +18,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Run Install dependesse
-        run: yarn 
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
       - name: Run linter
         run: yarn lint
@@ -29,8 +31,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Run Install dependesse
-        run: yarn 
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
       - name: Run Build
         run: yarn build
@@ -44,8 +48,10 @@ jobs:
           node-version: 16.13.0
           cache: 'yarn'
 
-      - name: Run Install dependesse
-        run: yarn
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
       # https://docs.cypress.io/guides/continuous-integration/github-actions#Testing-in-Chrome-and-Firefox-with-Cypress-Docker-Images
       - name: Cypress
