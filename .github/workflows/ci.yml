@@ -50,7 +50,6 @@ jobs:
         with: 
           browser: chrome
           # we have already installed all dependencies above
-          install: false
           start: yarn dev
           wait-on: 'http://localhost:3000'
           wait-on-timeout: 120
