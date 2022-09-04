@@ -44,6 +44,9 @@ jobs:
           node-version: 16.13.0
           cache: 'yarn'
 
+      - name: Run Install dependesse
+        run: yarn
+
       # https://docs.cypress.io/guides/continuous-integration/github-actions#Testing-in-Chrome-and-Firefox-with-Cypress-Docker-Images
       - name: Cypress
         uses: cypress-io/github-action@v4
