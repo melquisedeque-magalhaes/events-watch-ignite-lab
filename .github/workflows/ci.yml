@@ -24,6 +24,28 @@ jobs:
       - name: Run linter
         run: yarn lint
 
+  Typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run Install dependesse
+        run: yarn 
+
+      - name: Run Typecheck
+        run: yarn typecheck
+
+  Codegen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run Install dependesse
+        run: yarn 
+
+      - name: Run Codegen
+        run: yarn codegen
+
   Build:
     runs-on: ubuntu-latest
     steps:

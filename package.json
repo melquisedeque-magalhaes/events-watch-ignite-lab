@@ -9,7 +9,8 @@
     "lint": "next lint",
     "codegen": "graphql-codegen",
     "test:e2e:open": "cypress open",
-    "test:e2e": "cypress run"
+    "test:e2e": "cypress run",
+    "typecheck": "tsc --project tsconfig.json --noEmit"
   },
   "dependencies": {
     "@apollo/client": "^3.6.8",
