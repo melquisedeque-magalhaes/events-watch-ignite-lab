@@ -1,0 +1,80 @@
+name: "Continuos Integration (CI) Install dependesse"
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  Dependesse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run Install dependesse
+        run: yarn 
+
+  Linter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run Install dependesse
+        run: yarn 
+
+      - name: Run linter
+        run: yarn lint
+
+  Typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run Install dependesse
+        run: yarn 
+
+      - name: Run Typecheck
+        run: yarn typecheck
+
+  Codegen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run Install dependesse
+        run: yarn 
+
+      - name: Run Codegen
+        run: yarn codegen
+
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run Install dependesse
+        run: yarn 
+
+      - name: Run Build
+        run: yarn build
+
+  Test_e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.13.0
+          cache: 'yarn'
+
+      - name: Run Install dependesse
+        run: yarn
+
+      # https://docs.cypress.io/guides/continuous-integration/github-actions#Testing-in-Chrome-and-Firefox-with-Cypress-Docker-Images
+      - name: Cypress
+        uses: cypress-io/github-action@v4
+        with: 
+          browser: chrome
+          # we have already installed all dependencies above
+          start: yarn dev
+          wait-on: 'http://localhost:3000'
+          wait-on-timeout: 120

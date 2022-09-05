@@ -1,6 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 import { GetServerSideProps } from 'next'
 import { getSession, signIn } from 'next-auth/react'
-import Image from 'next/image'
+
 import { GithubLogo } from 'phosphor-react'
 
 import { Logo } from '../components/Logo'
@@ -16,7 +17,7 @@ export default function Home() {
             Construa uma{' '}
             <span className="text-blue-500 font-bold">aplicação completa</span>,
             do zero, com{' '}
-            <span className="text-blue-500 font-bold">React JS</span>
+            <span className="text-blue-500 font-bold">React JS - Melqui</span>
           </h1>
 
           <p className="mt-6 text-base text-gray-200 leading-relaxed">
@@ -42,7 +43,7 @@ export default function Home() {
         </form>
       </div>
 
-      <Image src="/code-background.png" alt="Code Reactjs" />
+      <img src="/code-background.png" alt="Code Reactjs" />
     </div>
   )
 }

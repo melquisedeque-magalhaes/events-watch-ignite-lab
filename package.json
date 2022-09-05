@@ -7,7 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "codegen": "graphql-codegen"
+    "codegen": "graphql-codegen",
+    "test:e2e:open": "cypress open",
+    "test:e2e": "cypress run",
+    "typecheck": "tsc --project tsconfig.json --noEmit"
   },
   "dependencies": {
     "@apollo/client": "^3.6.8",
@@ -33,6 +36,7 @@
     "@types/react": "^18.0.14",
     "@types/react-lottie": "^1.2.6",
     "autoprefixer": "^10.4.7",
+    "cypress": "^10.7.0",
     "eslint": "^8.23.0",
     "eslint-config-next": "12.1.6",
     "postcss": "^8.4.14",
