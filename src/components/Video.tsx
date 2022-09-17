@@ -9,17 +9,25 @@ import Lottie from 'react-lottie'
 import loadingAnimation from '../animations/loading.json'
 
 export function Video() {
+
+
   const { query } = useRouter()
 
   const { slug } = query
 
+  const convertSlug = String(slug)
+
+  console.log(convertSlug)
+
   const { data, loading, error } = useGetLessonBySlugQuery({
     variables: {
-      slug: String(slug),
+      slug: convertSlug,
     },
   })
 
   console.log(data)
+
+
 
   if (loading && !error) {
     return (
