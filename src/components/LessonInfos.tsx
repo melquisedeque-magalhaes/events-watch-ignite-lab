@@ -1,5 +1,3 @@
-import Image from 'next/image'
-
 interface LessonInfosProps {
   title: string
   description: string
@@ -18,11 +16,13 @@ export function LessonInfos({ description, teacher, title }: LessonInfosProps) {
       <p className="text-base text-gray-200">{description}</p>
 
       <div className="flex mt-6 gap-4 leading-relaxed">
-        <Image
-          src={teacher?.avatarURL}
-          alt={teacher?.name}
-          className="w-16 h-16 rounded-full border-2 border-blue-500"
-        />
+        {teacher?.avatarURL && (
+          <img
+            src={teacher?.avatarURL}
+            alt={teacher?.name}
+            className="w-16 h-16 rounded-full border-2 border-blue-500"
+          />
+        )}
 
         <div>
           <span className="font-bold text-2xl text-gray-100">

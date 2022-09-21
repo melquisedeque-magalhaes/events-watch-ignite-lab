@@ -57,6 +57,17 @@ jobs:
       - name: Run Build
         run: yarn build
 
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run Install dependesse
+        run: yarn 
+
+      - name: Run Test
+        run: yarn test
+
   Test_e2e:
     runs-on: ubuntu-latest
     steps:
