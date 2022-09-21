@@ -10,6 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Run Install dependesse
         run: yarn 
 
   Linter:
@@ -17,6 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Run Install dependesse
         run: yarn 
 
       - name: Run linter
@@ -27,6 +29,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Run Install dependesse
         run: yarn 
 
       - name: Run Typecheck
@@ -37,6 +40,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Run Install dependesse
         run: yarn 
 
       - name: Run Codegen
@@ -47,6 +51,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Run Install dependesse
         run: yarn 
 
       - name: Run Build
@@ -57,6 +62,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Run Install dependesse
         run: yarn 
 
       - name: Run Test
@@ -71,6 +77,7 @@ jobs:
           node-version: 16.13.0
           cache: 'yarn'
 
+      - name: Run Install dependesse
         run: yarn
 
       # https://docs.cypress.io/guides/continuous-integration/github-actions#Testing-in-Chrome-and-Firefox-with-Cypress-Docker-Images
