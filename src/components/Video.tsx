@@ -2,55 +2,37 @@ import { LessonInfos } from './LessonInfos'
 import { ContainerVideo } from './ContainerVideo'
 import { LinksExtras } from './LinksExtras'
 import { LinkChallengeAndCommunity } from './LinkChallengeAndCommunity'
-import { useGetLessonBySlugQuery } from '../typings/generated'
-import { useRouter } from 'next/router'
+import { LessonType } from '../typings/Lesson'
+// import { useGetLessonBySlugQuery } from '../typings/generated'
 
-import Lottie from 'react-lottie'
-import loadingAnimation from '../animations/loading.json'
+// import Lottie from 'react-lottie'
+// import loadingAnimation from '../animations/loading.json'
 
-export function Video() {
+export function Video({ lesson }: LessonType) {
+  // const { data } = useGetLessonBySlugQuery()
 
-
-  const { query } = useRouter()
-
-  const { slug } = query
-
-  const convertSlug = String(slug)
-
-  console.log(convertSlug)
-
-  const { data, loading, error } = useGetLessonBySlugQuery({
-    variables: {
-      slug: convertSlug,
-    },
-  })
-
-  console.log(data)
-
-
-
-  if (loading && !error) {
-    return (
-      <Lottie
-        options={{
-          animationData: loadingAnimation,
-        }}
-        height={400}
-        width={400}
-      />
-    )
-  }
+  // if (loading && !error) {
+  //   return (
+  //     <Lottie
+  //       options={{
+  //         animationData: loadingAnimation,
+  //       }}
+  //       height={400}
+  //       width={400}
+  //     />
+  //   )
+  // }
 
   return (
     <div className="flex-1">
-      <ContainerVideo videoId={data?.lesson?.videoId} />
+      <ContainerVideo videoId={lesson?.videoId} />
 
       <div className="p-8 mx-auto w-full max-w-[1100px]">
         <div className="flex items-start gap-6">
           <LessonInfos
-            title={data?.lesson?.title}
-            description={data?.lesson?.description}
-            teacher={data?.lesson?.teacher}
+            title={lesson?.title}
+            description={lesson?.description}
+            teacher={lesson?.teacher}
           />
 
           <LinkChallengeAndCommunity />
