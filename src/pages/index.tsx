@@ -29,7 +29,7 @@ export default function Home() {
 
         <form className="bg-gray-700 p-8 rounded flex flex-col">
           <strong className="text-2xl text-gray-100">
-            Inscreva-se gratuitamente
+            Inscreva-se gratuitamente Melqui
           </strong>
 
           <button
