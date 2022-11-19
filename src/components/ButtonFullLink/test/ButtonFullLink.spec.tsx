@@ -7,6 +7,6 @@ describe('Component [ButtonFullLink]', () => {
       <ButtonFullLink title="test" description="test" icon="File" />,
     )
 
-    expect(container).toBeInTheDocument()
+    expect(container).not.toBeInTheDocument()
   })
 })

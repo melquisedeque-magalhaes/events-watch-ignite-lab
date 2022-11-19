@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic'
 
-const PlayVideo = dynamic(() => import('./PlayVideo'), {
+const PlayVideo = dynamic(() => import('../PlayVideo'), {
   ssr: false,
 })
 

@@ -1,8 +1,8 @@
 import { LessonInfos } from './LessonInfos'
-import { ContainerVideo } from './ContainerVideo'
 import { LinksExtras } from './LinksExtras'
 import { LinkChallengeAndCommunity } from './LinkChallengeAndCommunity'
 import { LessonType } from '../typings/Lesson'
+import { ContainerVideo } from './ContainerVIdeo'
 // import { useGetLessonBySlugQuery } from '../typings/generated'
 
 // import Lottie from 'react-lottie'
