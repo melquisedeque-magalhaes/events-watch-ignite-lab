@@ -15,15 +15,15 @@ describe('Navigate Page Home to Page SignIn Github', () => {
   it('singIn github', () => {
     cy.get('button[type="submit"]').click()
     cy.wait(500)
-    cy.get('button[type="submit"]').click()
+    // cy.get('button[type="submit"]').click()
 
     cy.get('p').contains('Sign in to GitHub to continue to Ignite Lab Develop')
 
-    cy.get('input[name="login"]').type(process.env.GITHUB_EMAIL, {
+    cy.get('input[name="login"]').type(Cypress.env('GITHUB_EMAIL'), {
       force: true,
     })
 
-    cy.get('input[name="password"]').type(process.env.GITHUB_PASSWORD, {
+    cy.get('input[name="password"]').type(Cypress.env('GITHUB_PASSWORD'), {
       force: true,
     })
 
