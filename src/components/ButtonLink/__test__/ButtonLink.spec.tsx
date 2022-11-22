@@ -1,10 +1,12 @@
 import { render } from '@testing-library/react'
-import { ButtonFullLink } from '..'
+import { ButtonLink } from '..'
 
-describe('Component [ButtonFullLink]', () => {
+describe('Component [ButtonLink]', () => {
   it('Should be able render correctly', () => {
     const { container } = render(
-      <ButtonFullLink title="test" description="test" icon="File" />,
+      <ButtonLink variant="Primary">
+        <h1>test</h1>
+      </ButtonLink>,
     )
 
     expect(container).toBeInTheDocument()
