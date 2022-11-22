@@ -17,7 +17,7 @@ describe('[Pages] - Home', () => {
     expect(container).toBeInTheDocument()
   })
 
-  it('Should be able make login whe user press button "Conectar com Github"', () => {
+  it.skip('Should be able make login whe user press button "Conectar com Github"', () => {
     const { getByRole } = render(<Home />)
 
     const buttonSignInGithub = getByRole('button', {
